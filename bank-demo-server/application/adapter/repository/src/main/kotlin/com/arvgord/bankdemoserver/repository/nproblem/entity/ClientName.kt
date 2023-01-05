@@ -1,7 +1,7 @@
 package com.arvgord.bankdemoserver.repository.nproblem.entity
 
-import javax.persistence.Column
-import javax.persistence.Embeddable
+import jakarta.persistence.Column
+import jakarta.persistence.Embeddable
 
 @Embeddable
 class ClientName(
