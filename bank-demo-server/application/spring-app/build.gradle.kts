@@ -6,7 +6,7 @@ dependencies {
     implementation(project(":use-case"))
     implementation(project(":use-case-api"))
 
-    implementation("org.flywaydb:flyway-core")
+    implementation("org.flywaydb:flyway-core:${property("flywayCoreVersion")}")
 
     runtimeOnly("org.postgresql:postgresql:${property("postgresqlVersion")}")
 }
