@@ -47,6 +47,6 @@ allprojects {
 }
 
 project(":spring-app") {
-    tasks.bootJar{ enabled = true }
-    tasks.jar{ enabled = false }
+    tasks.bootJar { enabled = true }
+    tasks.jar { enabled = false }
 }
