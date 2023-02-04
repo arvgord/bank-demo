@@ -3,16 +3,17 @@ import {ExtractingStrategy} from "@arvgord/bank-demo-api/bankdemo/v1/messages/ex
 
 type StrategyButtonsProps = {
     strategy: ExtractingStrategy
-    changeStrategy: (s: ExtractingStrategy) => void
+    onChangeStrategy: (strategy: ExtractingStrategy) => void
 }
 
-export function StrategyButtons( { strategy, changeStrategy } : StrategyButtonsProps ) {
+export function StrategyButtons( { strategy, onChangeStrategy } : StrategyButtonsProps ) {
     return (
         <ToggleButtonGroup
             color="primary"
             value={strategy}
             exclusive
-            onChange={(e, s) => {if (s) changeStrategy(s)}}
+            onChange={(e, s) => {if (s) onChangeStrategy(s)}}
+            sx={{ minWidth: 600, maxWidth: 850 }}
         >
             <ToggleButton value={ExtractingStrategy.EXTRACTING_STRATEGY_LAZY}>
                 LAZY
