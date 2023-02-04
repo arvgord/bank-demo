@@ -8,12 +8,14 @@ import {ExtractingStrategy} from "@arvgord/bank-demo-api/bankdemo/v1/messages/ex
 import {BankDemoPromiseClient} from "@arvgord/bank-demo-api/bankdemo/v1/api/business/bank_demo_grpc_web_pb";
 
 export function useGetList(page: number, size: number, strategy: ExtractingStrategy) {
-    const [data, setData] = useState(new GetClientListResponse().toObject())
+    const [response, setResponse] = useState(new GetClientListResponse().toObject())
     const [error, setError] = useState()
     const [loading, setLoading] = useState(true)
 
+    useEffect(() => setLoading(true), [page, size, strategy])
+
     useEffect(() => {
-        if (!page && !size) return
+        if (!page && !size && !strategy) return
         const service = new BankDemoPromiseClient('http://localhost:8080', null, null)
         const request = new GetClientListRequest()
         const pageRequest = new PageRequest()
@@ -23,14 +25,14 @@ export function useGetList(page: number, size: number, strategy: ExtractingStrat
         request.setExtractingStrategy(strategy)
         service.getClientList(request, {})
             .then(result => result.toObject())
-            .then(setData)
+            .then(setResponse)
             .then(() => setLoading(false))
             .catch(setError)
     }, [page, size, strategy]);
 
     return {
         loading,
-        data,
+        response,
         error
     };
 }
