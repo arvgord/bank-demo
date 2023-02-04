@@ -26,7 +26,7 @@ export function ClientTable({loading, size, page, onChangeSize, onChangePage, re
     return (
         <div>
             <TableContainer>
-                <Table sx={{ minWidth: 600, maxWidth: 850 }}>
+                <Table sx={{minWidth: 600, maxWidth: 850}}>
                     <TableHead>
                         <TableRow>
                             <TablePagination
@@ -75,14 +75,11 @@ function getTableBody(clientsList: Array<bankdemo_v1_messages_client_list_item_p
         ))}
     </TableBody>
     const loadingAnimation = <TableBody>
-        {[1, 2, 3, 4].map((client, index) => (
-            <TableRow key={index}>
-                <TableCell><Skeleton key={index} variant="rounded" animation={"wave"} /></TableCell>
-                <TableCell><Skeleton key={index} variant="rounded" animation={"wave"} /></TableCell>
-                <TableCell><Skeleton key={index} variant="rounded" animation={"wave"} /></TableCell>
-                <TableCell><Skeleton key={index} variant="rounded" animation={"wave"} /></TableCell>
-                <TableCell><Skeleton key={index} variant="rounded" animation={"wave"} /></TableCell>
-                <TableCell><Skeleton key={index} variant="rounded" animation={"wave"} /></TableCell>
+        {[1, 2, 3, 4].map(rowNumber => (
+            <TableRow key={rowNumber}>
+                {[1, 2, 3, 4, 5, 6].map(cellNumber => (
+                    <TableCell><Skeleton key={cellNumber} variant="rounded" animation={"wave"}/></TableCell>
+                ))}
             </TableRow>
         ))}
     </TableBody>
