@@ -70,7 +70,7 @@ function getTableBody(clientsList: Array<bankdemo_v1_messages_client_list_item_p
                 <TableCell>{client.totalAccounts?.value ? client.totalAccounts.value : 0}</TableCell>
                 <TableCell>{client.totalDeposits?.value ? client.totalDeposits.value : 0}</TableCell>
                 <TableCell>{client.totalLoans?.value ? client.totalLoans.value : 0}</TableCell>
-                <TableCell>{client.totalTransfers?.value ? client.totalLoans?.value : 0}</TableCell>
+                <TableCell>{client.totalTransfers?.value ? client.totalTransfers?.value : 0}</TableCell>
             </TableRow>
         ))}
     </TableBody>
