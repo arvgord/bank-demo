@@ -11,6 +11,7 @@ export function useGetList(page: number, size: number, strategy: ExtractingStrat
     const [response, setResponse] = useState(new GetClientListResponse().toObject())
     const [error, setError] = useState()
     const [loading, setLoading] = useState(true)
+    const [requestTime, setRequestTime] = useState(0)
 
     useEffect(() => setLoading(true), [page, size, strategy])
 
@@ -23,16 +24,19 @@ export function useGetList(page: number, size: number, strategy: ExtractingStrat
         pageRequest.setSize(new Int32Value().setValue(size))
         request.setPageRequest(pageRequest)
         request.setExtractingStrategy(strategy)
+        const startRequest = new Date().getTime()
         service.getClientList(request, {})
             .then(result => result.toObject())
             .then(setResponse)
             .then(() => setLoading(false))
+            .then(() => setRequestTime(new Date().getTime() - startRequest))
             .catch(setError)
     }, [page, size, strategy]);
 
     return {
         loading,
         response,
+        requestTime,
         error
     };
 }
