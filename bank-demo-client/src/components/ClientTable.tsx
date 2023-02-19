@@ -26,7 +26,7 @@ export function ClientTable({loading, size, page, onChangeSize, onChangePage, re
     return (
         <div>
             <TableContainer>
-                <Table sx={{minWidth: 600, maxWidth: 850}}>
+                <Table sx={{minWidth: 1000, maxWidth: 1000}}>
                     <TableHead>
                         <TableRow>
                             <TablePagination
@@ -46,12 +46,43 @@ export function ClientTable({loading, size, page, onChangeSize, onChangePage, re
                             />
                         </TableRow>
                         <TableRow>
-                            <TableCell width={250}>Client name</TableCell>
-                            <TableCell width={150}>Client city</TableCell>
-                            <TableCell width={50}>Total accounts</TableCell>
-                            <TableCell width={50}>Total deposits</TableCell>
-                            <TableCell width={50}>Total loans</TableCell>
-                            <TableCell width={50}>Total transfers</TableCell>
+                            <TableCell sx={{ width: "20%" }}>Client name</TableCell>
+                            <TableCell sx={{ width: '8%'}}>
+                                Total<br/>
+                                accounts
+                            </TableCell>
+                            <TableCell sx={{ width: '14%'}}>
+                                Total<br/>
+                                accounts<br/>
+                                balance
+                            </TableCell>
+                            <TableCell sx={{ width: '8%'}}>
+                                Total<br/>
+                                deposits
+                            </TableCell>
+                            <TableCell sx={{ width: '8%'}}>
+                                Average<br/>
+                                deposits<br/>
+                                rate
+                            </TableCell>
+                            <TableCell sx={{ width: '8%'}}>
+                                Total<br/>
+                                loans
+                            </TableCell>
+                            <TableCell sx={{ width: '8%'}}>
+                                Average<br/>
+                                loans<br/>
+                                rate
+                            </TableCell>
+                            <TableCell sx={{ width: '8%'}}>
+                                Total<br/>
+                                transfers
+                            </TableCell>
+                            <TableCell sx={{ width: '14%'}}>
+                                Total<br/>
+                                transfers<br/>
+                                amount
+                            </TableCell>
                         </TableRow>
                     </TableHead>
                     {getTableBody(response.clientsList, loading)}
@@ -66,18 +97,21 @@ function getTableBody(clientsList: Array<bankdemo_v1_messages_client_list_item_p
         {clientsList.map((client, index) => (
             <TableRow key={index}>
                 <TableCell>{getClientName(client.clientName)}</TableCell>
-                <TableCell>{client.clientAddress?.city?.value ? client.clientAddress.city.value : 0}</TableCell>
                 <TableCell>{client.totalAccounts?.value ? client.totalAccounts.value : 0}</TableCell>
+                <TableCell>{client.totalAccountsBalance?.value ? client.totalAccountsBalance.value : 0}</TableCell>
                 <TableCell>{client.totalDeposits?.value ? client.totalDeposits.value : 0}</TableCell>
+                <TableCell>{client.avgDepositsRate?.value ? client.avgDepositsRate.value : 0}</TableCell>
                 <TableCell>{client.totalLoans?.value ? client.totalLoans.value : 0}</TableCell>
-                <TableCell>{client.totalTransfers?.value ? client.totalTransfers?.value : 0}</TableCell>
+                <TableCell>{client.avgLoansRate?.value ? client.avgLoansRate.value : 0}</TableCell>
+                <TableCell>{client.totalTransfers?.value ? client.totalTransfers.value : 0}</TableCell>
+                <TableCell>{client.totalTransfersAmount?.value ? client.totalTransfersAmount.value : 0}</TableCell>
             </TableRow>
         ))}
     </TableBody>
     const loadingAnimation = <TableBody>
         {[1, 2, 3, 4].map(rowNumber => (
             <TableRow key={rowNumber}>
-                {[1, 2, 3, 4, 5, 6].map(cellNumber => (
+                {[1, 2, 3, 4, 5, 6, 7, 8, 9].map(cellNumber => (
                     <TableCell><Skeleton key={cellNumber} variant="rounded" animation={"wave"}/></TableCell>
                 ))}
             </TableRow>
@@ -86,9 +120,9 @@ function getTableBody(clientsList: Array<bankdemo_v1_messages_client_list_item_p
     return loading ? loadingAnimation : data
 }
 
-function getClientName(clientName: bankdemo_v1_messages_client_name_pb.ClientName.AsObject | undefined): string {
-    const lastName = clientName?.lastName?.value ? clientName?.lastName?.value : ""
-    const middleName = clientName?.middleName?.value ? clientName?.middleName?.value : ""
-    const firstName = clientName?.firstName?.value ? clientName?.firstName?.value : ""
+function getClientName(clientName: bankdemo_v1_messages_client_name_pb.ClientName.AsObject | undefined) {
+    const lastName = clientName?.lastName?.value ? clientName?.lastName.value : ""
+    const middleName = clientName?.middleName?.value ? clientName?.middleName.value[0] + "." : ""
+    const firstName = clientName?.firstName?.value ? clientName?.firstName.value[0] + "." : ""
     return lastName + " " + firstName + " " + middleName
 }

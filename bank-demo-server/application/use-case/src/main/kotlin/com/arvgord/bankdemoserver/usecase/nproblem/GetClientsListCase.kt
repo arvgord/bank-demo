@@ -8,6 +8,7 @@ import com.arvgord.bankdemoserver.domain.nproblem.interaction.GetClientListRespo
 import com.arvgord.bankdemoserver.usecase.api.nproblem.GetClientsListApi
 import java.math.BigDecimal
 import java.math.MathContext
+import java.math.RoundingMode
 
 @Component
 class GetClientsListCase(
@@ -22,11 +23,13 @@ class GetClientsListCase(
                 var avgDepositsRate = BigDecimal(0)
                 if (depositsRateSum > avgDepositsRate) {
                     avgDepositsRate = depositsRateSum.divide(BigDecimal(it.deposits.size), MathContext.DECIMAL32)
+                        .setScale(2, RoundingMode.HALF_DOWN)
                 }
                 val loansRateSum = it.loans?.sumOf { loan -> loan.rate } ?: BigDecimal(0)
                 var avgLoansRate = BigDecimal(0)
                 if (loansRateSum > avgLoansRate) {
                     avgLoansRate = loansRateSum.divide(BigDecimal(it.loans!!.size), MathContext.DECIMAL32)
+                        .setScale(2, RoundingMode.HALF_DOWN)
                 }
                 ClientListItem(
                     it.clientName,

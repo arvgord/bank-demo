@@ -13,7 +13,7 @@ export function StrategyButtons( { strategy, onChangeStrategy } : StrategyButton
             value={strategy}
             exclusive
             onChange={(e, s) => {if (s) onChangeStrategy(s)}}
-            sx={{ minWidth: 600, maxWidth: 850 }}
+            sx={{ minWidth: 1000, maxWidth: 1000 }}
         >
             <ToggleButton value={ExtractingStrategy.EXTRACTING_STRATEGY_LAZY}>
                 LAZY
