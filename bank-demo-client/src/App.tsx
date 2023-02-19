@@ -20,6 +20,7 @@ function App() {
                 onChangeSize={size => setSize(size)}
                 onChangePage={page => setPage(page)}
                 response={response}
+                strategy={strategy}
             />
         </div>
     );
