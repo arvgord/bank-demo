@@ -1,7 +1,7 @@
 import {useState} from 'react';
 import {ExtractingStrategy} from "@arvgord/bank-demo-api/bankdemo/v1/messages/extracting_strategy_pb";
 import {ClientTable} from "./components/ClientTable";
-import {useGetList} from "./components/Requests";
+import {useGetList} from "./api/Requests";
 import {StrategyButtons} from "./components/StrategyButtons";
 import {Timer} from "./components/Timer";
 
