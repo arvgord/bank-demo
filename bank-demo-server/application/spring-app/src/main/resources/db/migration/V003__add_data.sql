@@ -17,4 +17,4 @@ FROM pg_catalog.generate_series(1, 10000) id;
 --Create 100 000 transfers
 INSERT INTO ACCOUNT_TRANSFER
 SELECT id, floor(random()*10000000+1), md5(random()::text), md5(random()::text), floor(random()*10000+1)
-FROM pg_catalog.generate_series(1, 100000) id;
+FROM pg_catalog.generate_series(1, 100000) id; --You can increase the number of ACCOUNT_TRANSFER to see the difference between @BatchSize and split query with @EntityGraph
