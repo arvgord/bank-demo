@@ -9,7 +9,7 @@ spring:
     properties:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
-#        batch_fetch_style: DYNAMIC
+        batch_fetch_style: DYNAMIC
 #        default_batch_fetch_size: 50
   datasource:
     password: ${POSTGRES_PASSWORD:postgres}
