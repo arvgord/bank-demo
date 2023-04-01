@@ -25,16 +25,13 @@ export function StrategyButtons( { strategy, onChangeStrategy } : StrategyButton
                 BATCH
             </ToggleButton>
             <ToggleButton value={ExtractingStrategy.EXTRACTING_STRATEGY_CRITERIA}>
-                CRITERIA
+                CRITERIA FETCH
             </ToggleButton>
             <ToggleButton value={ExtractingStrategy.EXTRACTING_STRATEGY_ENTITY_GRAPH}>
                 ENTITY GRAPH
             </ToggleButton>
             <ToggleButton value={ExtractingStrategy.EXTRACTING_STRATEGY_ENTITY_GRAPH_PAGEABLE}>
                 ENTITY GRAPH PAGEABLE
-            </ToggleButton>
-            <ToggleButton value={ExtractingStrategy.EXTRACTING_STRATEGY_ENTITY_GRAPH_PAGEABLE_SKIP_FIELDS}>
-                ENTITY GRAPH PAGEABLE SKIP FIELDS
             </ToggleButton>
         </ToggleButtonGroup>
     );
