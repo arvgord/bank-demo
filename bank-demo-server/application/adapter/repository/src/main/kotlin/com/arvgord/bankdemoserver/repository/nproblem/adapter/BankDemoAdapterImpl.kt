@@ -14,7 +14,7 @@ import com.arvgord.bankdemoserver.repository.nproblem.entity.lazy.ClientEntityLa
 import com.arvgord.bankdemoserver.repository.nproblem.entity.lazy.ClientEntityLazy_
 import com.arvgord.bankdemoserver.repository.nproblem.mapping.ClientEntityMapper
 import org.springframework.data.jpa.domain.Specification
-import javax.persistence.criteria.JoinType
+import jakarta.persistence.criteria.JoinType
 import org.springframework.data.domain.PageRequest as SpringPageRequest
 
 @Component

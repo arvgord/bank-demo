@@ -34,6 +34,7 @@ allprojects {
         implementation("org.springframework.boot:spring-boot-starter")
         implementation("org.jetbrains.kotlin:kotlin-reflect")
         implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
+        implementation("jakarta.xml.bind:jakarta.xml.bind-api:${property("jakartaXmlBindApiVersion")}")
     }
 
     tasks.test {
