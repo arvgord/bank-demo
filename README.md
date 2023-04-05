@@ -17,9 +17,11 @@
 
 ### Start bank-demo-server
 
-1. `cd ./bank-demo/bank-demo-server`
-2. `./gradlew build`
-3. `java -jar ./application/spring-app/build/libs/spring-app.jar`
+1. `export USERNAME=YOUR_GITHUB_USER_NAME`
+2. `export TOKEN=YOUR_GITHUB_TOKEN`
+3. `cd ./bank-demo/bank-demo-server`
+4. `./gradlew build`
+5. `java -jar ./application/spring-app/build/libs/spring-app.jar`
 
 ### Start bank-demo-client
 
