@@ -9,6 +9,9 @@
 * docker-compose
 
 ## Running Bank application
+To download GitHub packages you need to create a [personal access token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)
+with **read:packages** access. 
+![read_packages.png](read_packages.png)
 
 ### Start docker-compose
 
@@ -17,8 +20,8 @@
 
 ### Start bank-demo-server
 
-1. `export USERNAME=YOUR_GITHUB_USER_NAME`
-2. `export TOKEN=YOUR_GITHUB_TOKEN`
+1. `export USERNAME=GITHUB_USERNAME`
+2. `export TOKEN=GITHUB_TOKEN`
 3. `cd ./bank-demo/bank-demo-server`
 4. `./gradlew build`
 5. `java -jar ./application/spring-app/build/libs/spring-app.jar`
@@ -26,6 +29,9 @@
 ### Start bank-demo-client
 
 1. `cd ./bank-demo/bank-demo-client`
-2. `npm i`
-3. `npm run build`
-4. `npm start`
+2. `npm login --auth-type=legacy --registry=https://npm.pkg.github.com` 
+    * `> Username: GITHUB_USERNAME`
+    * `> Password: GITHUB_TOKEN`
+3. `npm i`
+4. `npm run build`
+5. `npm start`
