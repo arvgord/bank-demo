@@ -9,7 +9,7 @@
 * docker-compose
 
 ## Running Bank application
-To download GitHub packages you need to create a [personal access token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)
+To download GitHub packages to compile the project you need to create a [personal access token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)
 with **read:packages** access. 
 ![read_packages.png](read_packages.png)
 
