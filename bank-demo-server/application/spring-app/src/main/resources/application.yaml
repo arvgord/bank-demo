@@ -7,9 +7,8 @@ spring:
       ddl-auto: none
     show-sql: true
     properties:
-      hibernate:
-        dialect: org.hibernate.dialect.PostgreSQLDialect
-        batch_fetch_style: DYNAMIC
+      hibernate.dialect: org.hibernate.dialect.PostgreSQLDialect
+      hibernate.batch_fetch_style: DYNAMIC
 #        default_batch_fetch_size: 50
   datasource:
     password: ${POSTGRES_PASSWORD:postgres}
