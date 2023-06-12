@@ -20,6 +20,9 @@ allprojects {
     tasks.jar { enabled = true }
 
     repositories {
+        maven {
+            url = uri("https://repo.spring.io/milestone")
+        }
         mavenCentral()
         maven {
             url = uri("https://maven.pkg.github.com/arvgord/bank-demo-api")
