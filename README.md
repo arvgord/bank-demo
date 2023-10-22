@@ -29,7 +29,7 @@ with **read:packages** access.
 ### Start bank-demo-client
 
 1. `cd ./bank-demo/bank-demo-client`
-2. `npm login --auth-type=legacy --registry=https://npm.pkg.github.com` 
+2. `npm login --registry=https://npm.pkg.github.com` 
     * `> Username: GITHUB_USERNAME`
     * `> Password: GITHUB_TOKEN`
 3. `npm i`
